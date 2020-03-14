@@ -16,7 +16,7 @@ func base64ToImgBytes(base64Str string) ([]byte, error) {
 }
 
 func main() {
-	base64Str = ``
+	base64Str := ``
 	imgBytes, err := base64ToImgBytes(base64Str)
 	if err != nil {
 		fmt.Print("based64 decode error: ", err)
