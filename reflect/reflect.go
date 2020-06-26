@@ -7,9 +7,43 @@ import (
 	"reflect"
 )
 
+type Programmer struct {
+	Name     string   `tag:"name"`
+	Age      uint     `tag:"age"`
+	LangList []string `tag:"lang_list"`
+	Salary   float32  `tag:"salary"`
+}
+
+func InspectStructFields(s interface{}) {
+	fmt.Printf("inspecting strcut: %+v\n", s)
+	t := reflect.TypeOf(s)
+
+	if t.Kind() != reflect.Struct {
+		fmt.Println(s, " is not a struct")
+		return
+	}
+
+	for i := 0; i < t.NumField(); i++ {
+		f := t.Field(i)
+		fmt.Printf("field: %s, type: %v\n", f.Name, f.Type.Kind())
+	}
+}
+
+func GetStructTag(s interface{}) {
+	structValue := reflect.ValueOf(s)
+	structType := reflect.TypeOf(s)
+	for i := 0; i < structValue.NumField(); i++ {
+		f := structValue.Field(i)
+		value := f.Interface()
+		tp := structType.Field(i)
+		fmt.Printf("field: %v, type: %v, tagName: %s\n", value, tp.Type.Kind(), tp.Tag.Get("tag"))
+	}
+}
+
 func TypeOf(values ...interface{}) {
 	for _, v := range values {
-		fmt.Printf("val: %v, type: %v\n", v, reflect.TypeOf(v))
+		typeOfValue := reflect.TypeOf(v)
+		fmt.Printf("val: %v, type: %v\n", v, typeOfValue.Kind())
 	}
 }
 
