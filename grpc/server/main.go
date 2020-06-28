@@ -63,14 +63,6 @@ func (svc *chatServiceImpl) GetVisitor(ctx context.Context, request *chatPb.GetV
 }
 
 func (svc *chatServiceImpl) GetVisitorMessage(req *chatPb.GetVisitorMessageRequest, stream chatPb.ChatService_GetVisitorMessageServer) error {
-	// for _, feature := range s.savedFeatures {
-	//		if inRange(feature.Location, rect) {
-	//			if err := stream.Send(feature); err != nil {
-	//				return err
-	//			}
-	//		}
-	//	}
-	//	return nil
 	for _, msg := range messages {
 		if msg.FromId == req.VisitorId {
 			if err := stream.Send(&chatPb.GetVisitorMessageResponse{Messages: []*chatPb.ChatMessage{msg}}); err != nil {
