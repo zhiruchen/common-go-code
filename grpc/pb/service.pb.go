@@ -340,6 +340,194 @@ func (m *GetMessageResponse) GetMessages() []*ChatMessage {
 	return nil
 }
 
+type GetVisitorMessageRequest struct {
+	VisitorId            int32    `protobuf:"varint,1,opt,name=visitor_id,json=visitorId,proto3" json:"visitor_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetVisitorMessageRequest) Reset()         { *m = GetVisitorMessageRequest{} }
+func (m *GetVisitorMessageRequest) String() string { return proto.CompactTextString(m) }
+func (*GetVisitorMessageRequest) ProtoMessage()    {}
+func (*GetVisitorMessageRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a0b84a42fa06f626, []int{6}
+}
+func (m *GetVisitorMessageRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetVisitorMessageRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetVisitorMessageRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetVisitorMessageRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetVisitorMessageRequest.Merge(m, src)
+}
+func (m *GetVisitorMessageRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetVisitorMessageRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetVisitorMessageRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetVisitorMessageRequest proto.InternalMessageInfo
+
+func (m *GetVisitorMessageRequest) GetVisitorId() int32 {
+	if m != nil {
+		return m.VisitorId
+	}
+	return 0
+}
+
+type GetVisitorMessageResponse struct {
+	Messages             []*ChatMessage `protobuf:"bytes,1,rep,name=messages,proto3" json:"messages,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *GetVisitorMessageResponse) Reset()         { *m = GetVisitorMessageResponse{} }
+func (m *GetVisitorMessageResponse) String() string { return proto.CompactTextString(m) }
+func (*GetVisitorMessageResponse) ProtoMessage()    {}
+func (*GetVisitorMessageResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a0b84a42fa06f626, []int{7}
+}
+func (m *GetVisitorMessageResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetVisitorMessageResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetVisitorMessageResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetVisitorMessageResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetVisitorMessageResponse.Merge(m, src)
+}
+func (m *GetVisitorMessageResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetVisitorMessageResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetVisitorMessageResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetVisitorMessageResponse proto.InternalMessageInfo
+
+func (m *GetVisitorMessageResponse) GetMessages() []*ChatMessage {
+	if m != nil {
+		return m.Messages
+	}
+	return nil
+}
+
+type UploadVisitorAvatarRequest struct {
+	Avatar               []byte   `protobuf:"bytes,1,opt,name=avatar,proto3" json:"avatar,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UploadVisitorAvatarRequest) Reset()         { *m = UploadVisitorAvatarRequest{} }
+func (m *UploadVisitorAvatarRequest) String() string { return proto.CompactTextString(m) }
+func (*UploadVisitorAvatarRequest) ProtoMessage()    {}
+func (*UploadVisitorAvatarRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a0b84a42fa06f626, []int{8}
+}
+func (m *UploadVisitorAvatarRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *UploadVisitorAvatarRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_UploadVisitorAvatarRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *UploadVisitorAvatarRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UploadVisitorAvatarRequest.Merge(m, src)
+}
+func (m *UploadVisitorAvatarRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *UploadVisitorAvatarRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UploadVisitorAvatarRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UploadVisitorAvatarRequest proto.InternalMessageInfo
+
+func (m *UploadVisitorAvatarRequest) GetAvatar() []byte {
+	if m != nil {
+		return m.Avatar
+	}
+	return nil
+}
+
+type UploadVisitorAvatarResponse struct {
+	Url                  string   `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UploadVisitorAvatarResponse) Reset()         { *m = UploadVisitorAvatarResponse{} }
+func (m *UploadVisitorAvatarResponse) String() string { return proto.CompactTextString(m) }
+func (*UploadVisitorAvatarResponse) ProtoMessage()    {}
+func (*UploadVisitorAvatarResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a0b84a42fa06f626, []int{9}
+}
+func (m *UploadVisitorAvatarResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *UploadVisitorAvatarResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_UploadVisitorAvatarResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *UploadVisitorAvatarResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UploadVisitorAvatarResponse.Merge(m, src)
+}
+func (m *UploadVisitorAvatarResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *UploadVisitorAvatarResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UploadVisitorAvatarResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UploadVisitorAvatarResponse proto.InternalMessageInfo
+
+func (m *UploadVisitorAvatarResponse) GetUrl() string {
+	if m != nil {
+		return m.Url
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*GetVisitorRequest)(nil), "chat.GetVisitorRequest")
 	proto.RegisterType((*Visitor)(nil), "chat.Visitor")
@@ -347,33 +535,44 @@ func init() {
 	proto.RegisterType((*GetMessageRequest)(nil), "chat.GetMessageRequest")
 	proto.RegisterType((*ChatMessage)(nil), "chat.ChatMessage")
 	proto.RegisterType((*GetMessageResponse)(nil), "chat.GetMessageResponse")
+	proto.RegisterType((*GetVisitorMessageRequest)(nil), "chat.GetVisitorMessageRequest")
+	proto.RegisterType((*GetVisitorMessageResponse)(nil), "chat.GetVisitorMessageResponse")
+	proto.RegisterType((*UploadVisitorAvatarRequest)(nil), "chat.UploadVisitorAvatarRequest")
+	proto.RegisterType((*UploadVisitorAvatarResponse)(nil), "chat.UploadVisitorAvatarResponse")
 }
 
 func init() { proto.RegisterFile("service.proto", fileDescriptor_a0b84a42fa06f626) }
 
 var fileDescriptor_a0b84a42fa06f626 = []byte{
-	// 331 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x64, 0x92, 0xb1, 0x4e, 0xfb, 0x30,
-	0x10, 0xc6, 0xeb, 0xb4, 0xff, 0xe6, 0xdf, 0x0b, 0x45, 0xaa, 0x97, 0x5a, 0x48, 0x54, 0x91, 0x17,
-	0x32, 0xd0, 0x0a, 0x85, 0x99, 0xa1, 0x54, 0x08, 0x75, 0x60, 0x09, 0x12, 0x6b, 0x65, 0x92, 0x83,
-	0x66, 0x68, 0x5c, 0x62, 0xd3, 0x57, 0xe1, 0x95, 0x18, 0x79, 0x04, 0xd4, 0x27, 0x41, 0xb1, 0xe3,
-	0x36, 0x90, 0x2d, 0xbe, 0xbb, 0xef, 0xfc, 0xfb, 0x3e, 0x07, 0x86, 0x0a, 0xcb, 0x5d, 0x9e, 0xe2,
-	0x6c, 0x5b, 0x4a, 0x2d, 0x69, 0x2f, 0x5d, 0x0b, 0xcd, 0x63, 0x18, 0xdd, 0xa3, 0x7e, 0xca, 0x55,
-	0xae, 0x65, 0x99, 0xe0, 0xdb, 0x3b, 0x2a, 0x4d, 0xcf, 0x01, 0x76, 0xb6, 0xb2, 0xca, 0x33, 0x46,
-	0x42, 0x12, 0xfd, 0x4b, 0x06, 0x75, 0x65, 0x99, 0xf1, 0x29, 0xf8, 0xb5, 0x80, 0x9e, 0x82, 0x77,
-	0x98, 0xf0, 0xf2, 0x8c, 0x52, 0xe8, 0x15, 0x62, 0x83, 0xcc, 0x0b, 0x49, 0x34, 0x48, 0xcc, 0x37,
-	0xbf, 0x01, 0xda, 0xbc, 0x42, 0x6d, 0x65, 0xa1, 0x90, 0x5e, 0x80, 0x5f, 0x6f, 0x34, 0xf2, 0x20,
-	0x1e, 0xce, 0x2a, 0xa0, 0x99, 0x9b, 0x73, 0x5d, 0x7e, 0x69, 0x08, 0x1f, 0x50, 0x29, 0xf1, 0x8a,
-	0x8e, 0x70, 0x0c, 0xfe, 0x4b, 0x29, 0x37, 0x47, 0xbc, 0x7e, 0x75, 0x5c, 0x66, 0x5c, 0x42, 0xb0,
-	0x58, 0x0b, 0x37, 0xde, 0xe2, 0x6b, 0xe8, 0xbc, 0xa6, 0x8e, 0x32, 0xf0, 0x53, 0x59, 0x68, 0x2c,
-	0x34, 0xeb, 0x1a, 0x76, 0x77, 0xac, 0xc2, 0x48, 0x4b, 0x14, 0x1a, 0xb3, 0x95, 0xd0, 0xac, 0x17,
-	0x92, 0xa8, 0x9b, 0x0c, 0xea, 0xca, 0x5c, 0xf3, 0x85, 0x71, 0x77, 0xc0, 0xab, 0xdd, 0x4d, 0xe1,
-	0xff, 0xc6, 0x96, 0x14, 0x23, 0x61, 0x37, 0x0a, 0xe2, 0x91, 0xb5, 0xd7, 0x80, 0x4b, 0x0e, 0x23,
-	0xf1, 0x07, 0x81, 0xa0, 0x6a, 0x3f, 0xda, 0x17, 0xa2, 0x73, 0x80, 0x63, 0x64, 0x74, 0x6c, 0xa5,
-	0xad, 0x77, 0x3a, 0x63, 0xed, 0x86, 0xbd, 0x9f, 0x77, 0xe8, 0x9d, 0x59, 0xe1, 0x72, 0x38, 0xae,
-	0xf8, 0x1d, 0x64, 0x63, 0xc5, 0x1f, 0x0b, 0xbc, 0x13, 0x91, 0x2b, 0x72, 0x7b, 0xf2, 0xb9, 0x9f,
-	0x90, 0xaf, 0xfd, 0x84, 0x7c, 0xef, 0x27, 0xe4, 0xb9, 0x6f, 0x7e, 0x9d, 0xeb, 0x9f, 0x00, 0x00,
-	0x00, 0xff, 0xff, 0xad, 0xeb, 0x12, 0x23, 0x4b, 0x02, 0x00, 0x00,
+	// 433 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x93, 0xc1, 0x8e, 0xd3, 0x30,
+	0x10, 0x86, 0x71, 0x52, 0x1a, 0x32, 0xd9, 0x45, 0xac, 0x91, 0x58, 0x13, 0x44, 0x08, 0xbe, 0x90,
+	0x03, 0x5b, 0x56, 0x81, 0x0b, 0x07, 0x0e, 0x65, 0x85, 0xd0, 0x22, 0x71, 0x09, 0x02, 0x71, 0x62,
+	0x65, 0x12, 0xc3, 0x46, 0xda, 0xc6, 0x25, 0x76, 0xfb, 0x8c, 0x1c, 0xe1, 0x0d, 0x50, 0x9f, 0x04,
+	0xc5, 0xb1, 0x93, 0xd0, 0xb4, 0x20, 0x71, 0x8b, 0x67, 0xe6, 0xff, 0xfd, 0xcd, 0x78, 0x02, 0x87,
+	0x92, 0xd7, 0xeb, 0x32, 0xe7, 0xb3, 0x65, 0x2d, 0x94, 0xc0, 0x93, 0xfc, 0x92, 0x29, 0x9a, 0xc2,
+	0xd1, 0x6b, 0xae, 0x3e, 0x94, 0xb2, 0x54, 0xa2, 0xce, 0xf8, 0xb7, 0x15, 0x97, 0x0a, 0xdf, 0x07,
+	0x58, 0xb7, 0x91, 0x8b, 0xb2, 0x20, 0x28, 0x46, 0xc9, 0xf5, 0xcc, 0x37, 0x91, 0xf3, 0x82, 0x9e,
+	0x80, 0x67, 0x04, 0xf8, 0x26, 0x38, 0x5d, 0x85, 0x53, 0x16, 0x18, 0xc3, 0xa4, 0x62, 0x0b, 0x4e,
+	0x9c, 0x18, 0x25, 0x7e, 0xa6, 0xbf, 0xe9, 0x0b, 0xc0, 0xc3, 0x2b, 0xe4, 0x52, 0x54, 0x92, 0xe3,
+	0x47, 0xe0, 0x19, 0x47, 0x2d, 0x0f, 0xd2, 0xc3, 0x59, 0x03, 0x34, 0xb3, 0x75, 0x36, 0x4b, 0x1f,
+	0x6b, 0xc2, 0xb7, 0x5c, 0x4a, 0xf6, 0x95, 0x5b, 0xc2, 0x63, 0xf0, 0xbe, 0xd4, 0x62, 0xd1, 0xe3,
+	0x4d, 0x9b, 0xe3, 0x79, 0x41, 0x05, 0x04, 0x67, 0x97, 0xcc, 0x96, 0x8f, 0xf8, 0x06, 0x3a, 0x67,
+	0xa8, 0xc3, 0x04, 0xbc, 0x5c, 0x54, 0x8a, 0x57, 0x8a, 0xb8, 0x9a, 0xdd, 0x1e, 0x9b, 0x61, 0xe4,
+	0x35, 0x67, 0x8a, 0x17, 0x17, 0x4c, 0x91, 0x49, 0x8c, 0x12, 0x37, 0xf3, 0x4d, 0x64, 0xae, 0xe8,
+	0x99, 0xee, 0xae, 0xc3, 0x33, 0xdd, 0x9d, 0xc0, 0x8d, 0x45, 0x1b, 0x92, 0x04, 0xc5, 0x6e, 0x12,
+	0xa4, 0x47, 0x6d, 0x7b, 0x03, 0xb8, 0xac, 0x2b, 0xa1, 0xcf, 0x81, 0xf4, 0x23, 0xda, 0x6a, 0xf5,
+	0x1f, 0x8f, 0xf1, 0x06, 0xee, 0xee, 0x90, 0xfe, 0x1f, 0xc6, 0x33, 0x08, 0xdf, 0x2f, 0xaf, 0x04,
+	0x2b, 0x8c, 0xdd, 0x7c, 0xcd, 0x14, 0xeb, 0xb6, 0xe2, 0x0e, 0x4c, 0x99, 0x0e, 0x68, 0x88, 0x83,
+	0xcc, 0x9c, 0xe8, 0x13, 0xb8, 0xb7, 0x53, 0x65, 0x18, 0x6e, 0x81, 0xbb, 0xaa, 0xaf, 0xb4, 0xc6,
+	0xcf, 0x9a, 0xcf, 0xf4, 0xa7, 0x03, 0x41, 0x43, 0xf1, 0xae, 0xdd, 0x47, 0x3c, 0x07, 0xe8, 0x5b,
+	0xc0, 0xc7, 0x2d, 0xe1, 0x68, 0x2b, 0x43, 0x32, 0x4e, 0xb4, 0x57, 0xd0, 0x6b, 0xf8, 0xe3, 0x70,
+	0x8d, 0xed, 0xe3, 0x47, 0xdb, 0x82, 0x3f, 0x27, 0x1b, 0x3e, 0xd8, 0x9b, 0xb7, 0xbe, 0xa7, 0x08,
+	0xbf, 0xd2, 0x70, 0xd6, 0xb2, 0x87, 0xdb, 0xf2, 0x22, 0xe3, 0x84, 0x35, 0x49, 0xd0, 0x29, 0xc2,
+	0x9f, 0xe0, 0xf6, 0x8e, 0x21, 0xe1, 0xb8, 0x95, 0xed, 0x9f, 0x7a, 0xf8, 0xf0, 0x2f, 0x15, 0xfd,
+	0x0d, 0x2f, 0x0f, 0xbe, 0x6f, 0x22, 0xf4, 0x63, 0x13, 0xa1, 0x5f, 0x9b, 0x08, 0x7d, 0x9e, 0xea,
+	0x5f, 0xfc, 0xe9, 0xef, 0x00, 0x00, 0x00, 0xff, 0xff, 0xcb, 0x11, 0x32, 0xd0, 0xf3, 0x03, 0x00,
+	0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -389,7 +588,9 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type ChatServiceClient interface {
 	GetVisitor(ctx context.Context, in *GetVisitorRequest, opts ...grpc.CallOption) (*GetVisitorResponse, error)
+	GetVisitorMessage(ctx context.Context, in *GetVisitorMessageRequest, opts ...grpc.CallOption) (ChatService_GetVisitorMessageClient, error)
 	GetMessage(ctx context.Context, opts ...grpc.CallOption) (ChatService_GetMessageClient, error)
+	UploadVisitorAvatar(ctx context.Context, opts ...grpc.CallOption) (ChatService_UploadVisitorAvatarClient, error)
 }
 
 type chatServiceClient struct {
@@ -409,8 +610,40 @@ func (c *chatServiceClient) GetVisitor(ctx context.Context, in *GetVisitorReques
 	return out, nil
 }
 
+func (c *chatServiceClient) GetVisitorMessage(ctx context.Context, in *GetVisitorMessageRequest, opts ...grpc.CallOption) (ChatService_GetVisitorMessageClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_ChatService_serviceDesc.Streams[0], "/chat.chatService/GetVisitorMessage", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &chatServiceGetVisitorMessageClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type ChatService_GetVisitorMessageClient interface {
+	Recv() (*GetVisitorMessageResponse, error)
+	grpc.ClientStream
+}
+
+type chatServiceGetVisitorMessageClient struct {
+	grpc.ClientStream
+}
+
+func (x *chatServiceGetVisitorMessageClient) Recv() (*GetVisitorMessageResponse, error) {
+	m := new(GetVisitorMessageResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 func (c *chatServiceClient) GetMessage(ctx context.Context, opts ...grpc.CallOption) (ChatService_GetMessageClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_ChatService_serviceDesc.Streams[0], "/chat.chatService/GetMessage", opts...)
+	stream, err := c.cc.NewStream(ctx, &_ChatService_serviceDesc.Streams[1], "/chat.chatService/GetMessage", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -440,10 +673,46 @@ func (x *chatServiceGetMessageClient) Recv() (*GetMessageResponse, error) {
 	return m, nil
 }
 
+func (c *chatServiceClient) UploadVisitorAvatar(ctx context.Context, opts ...grpc.CallOption) (ChatService_UploadVisitorAvatarClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_ChatService_serviceDesc.Streams[2], "/chat.chatService/UploadVisitorAvatar", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &chatServiceUploadVisitorAvatarClient{stream}
+	return x, nil
+}
+
+type ChatService_UploadVisitorAvatarClient interface {
+	Send(*UploadVisitorAvatarRequest) error
+	CloseAndRecv() (*UploadVisitorAvatarResponse, error)
+	grpc.ClientStream
+}
+
+type chatServiceUploadVisitorAvatarClient struct {
+	grpc.ClientStream
+}
+
+func (x *chatServiceUploadVisitorAvatarClient) Send(m *UploadVisitorAvatarRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *chatServiceUploadVisitorAvatarClient) CloseAndRecv() (*UploadVisitorAvatarResponse, error) {
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	m := new(UploadVisitorAvatarResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // ChatServiceServer is the server API for ChatService service.
 type ChatServiceServer interface {
 	GetVisitor(context.Context, *GetVisitorRequest) (*GetVisitorResponse, error)
+	GetVisitorMessage(*GetVisitorMessageRequest, ChatService_GetVisitorMessageServer) error
 	GetMessage(ChatService_GetMessageServer) error
+	UploadVisitorAvatar(ChatService_UploadVisitorAvatarServer) error
 }
 
 // UnimplementedChatServiceServer can be embedded to have forward compatible implementations.
@@ -453,8 +722,14 @@ type UnimplementedChatServiceServer struct {
 func (*UnimplementedChatServiceServer) GetVisitor(ctx context.Context, req *GetVisitorRequest) (*GetVisitorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetVisitor not implemented")
 }
+func (*UnimplementedChatServiceServer) GetVisitorMessage(req *GetVisitorMessageRequest, srv ChatService_GetVisitorMessageServer) error {
+	return status.Errorf(codes.Unimplemented, "method GetVisitorMessage not implemented")
+}
 func (*UnimplementedChatServiceServer) GetMessage(srv ChatService_GetMessageServer) error {
 	return status.Errorf(codes.Unimplemented, "method GetMessage not implemented")
+}
+func (*UnimplementedChatServiceServer) UploadVisitorAvatar(srv ChatService_UploadVisitorAvatarServer) error {
+	return status.Errorf(codes.Unimplemented, "method UploadVisitorAvatar not implemented")
 }
 
 func RegisterChatServiceServer(s *grpc.Server, srv ChatServiceServer) {
@@ -477,6 +752,27 @@ func _ChatService_GetVisitor_Handler(srv interface{}, ctx context.Context, dec f
 		return srv.(ChatServiceServer).GetVisitor(ctx, req.(*GetVisitorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
+}
+
+func _ChatService_GetVisitorMessage_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GetVisitorMessageRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(ChatServiceServer).GetVisitorMessage(m, &chatServiceGetVisitorMessageServer{stream})
+}
+
+type ChatService_GetVisitorMessageServer interface {
+	Send(*GetVisitorMessageResponse) error
+	grpc.ServerStream
+}
+
+type chatServiceGetVisitorMessageServer struct {
+	grpc.ServerStream
+}
+
+func (x *chatServiceGetVisitorMessageServer) Send(m *GetVisitorMessageResponse) error {
+	return x.ServerStream.SendMsg(m)
 }
 
 func _ChatService_GetMessage_Handler(srv interface{}, stream grpc.ServerStream) error {
@@ -505,6 +801,32 @@ func (x *chatServiceGetMessageServer) Recv() (*GetMessageRequest, error) {
 	return m, nil
 }
 
+func _ChatService_UploadVisitorAvatar_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(ChatServiceServer).UploadVisitorAvatar(&chatServiceUploadVisitorAvatarServer{stream})
+}
+
+type ChatService_UploadVisitorAvatarServer interface {
+	SendAndClose(*UploadVisitorAvatarResponse) error
+	Recv() (*UploadVisitorAvatarRequest, error)
+	grpc.ServerStream
+}
+
+type chatServiceUploadVisitorAvatarServer struct {
+	grpc.ServerStream
+}
+
+func (x *chatServiceUploadVisitorAvatarServer) SendAndClose(m *UploadVisitorAvatarResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *chatServiceUploadVisitorAvatarServer) Recv() (*UploadVisitorAvatarRequest, error) {
+	m := new(UploadVisitorAvatarRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 var _ChatService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "chat.chatService",
 	HandlerType: (*ChatServiceServer)(nil),
@@ -516,9 +838,19 @@ var _ChatService_serviceDesc = grpc.ServiceDesc{
 	},
 	Streams: []grpc.StreamDesc{
 		{
+			StreamName:    "GetVisitorMessage",
+			Handler:       _ChatService_GetVisitorMessage_Handler,
+			ServerStreams: true,
+		},
+		{
 			StreamName:    "GetMessage",
 			Handler:       _ChatService_GetMessage_Handler,
 			ServerStreams: true,
+			ClientStreams: true,
+		},
+		{
+			StreamName:    "UploadVisitorAvatar",
+			Handler:       _ChatService_UploadVisitorAvatar_Handler,
 			ClientStreams: true,
 		},
 	},
@@ -757,6 +1089,147 @@ func (m *GetMessageResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *GetVisitorMessageRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetVisitorMessageRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetVisitorMessageRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.VisitorId != 0 {
+		i = encodeVarintService(dAtA, i, uint64(m.VisitorId))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetVisitorMessageResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetVisitorMessageResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetVisitorMessageResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if len(m.Messages) > 0 {
+		for iNdEx := len(m.Messages) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Messages[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintService(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *UploadVisitorAvatarRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *UploadVisitorAvatarRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *UploadVisitorAvatarRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if len(m.Avatar) > 0 {
+		i -= len(m.Avatar)
+		copy(dAtA[i:], m.Avatar)
+		i = encodeVarintService(dAtA, i, uint64(len(m.Avatar)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *UploadVisitorAvatarResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *UploadVisitorAvatarResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *UploadVisitorAvatarResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if len(m.Url) > 0 {
+		i -= len(m.Url)
+		copy(dAtA[i:], m.Url)
+		i = encodeVarintService(dAtA, i, uint64(len(m.Url)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintService(dAtA []byte, offset int, v uint64) int {
 	offset -= sovService(v)
 	base := offset
@@ -869,6 +1342,71 @@ func (m *GetMessageResponse) Size() (n int) {
 			l = e.Size()
 			n += 1 + l + sovService(uint64(l))
 		}
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *GetVisitorMessageRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.VisitorId != 0 {
+		n += 1 + sovService(uint64(m.VisitorId))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *GetVisitorMessageResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Messages) > 0 {
+		for _, e := range m.Messages {
+			l = e.Size()
+			n += 1 + l + sovService(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *UploadVisitorAvatarRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Avatar)
+	if l > 0 {
+		n += 1 + l + sovService(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *UploadVisitorAvatarResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Url)
+	if l > 0 {
+		n += 1 + l + sovService(uint64(l))
 	}
 	if m.XXX_unrecognized != nil {
 		n += len(m.XXX_unrecognized)
@@ -1428,6 +1966,341 @@ func (m *GetMessageResponse) Unmarshal(dAtA []byte) error {
 			if err := m.Messages[len(m.Messages)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipService(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthService
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthService
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetVisitorMessageRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowService
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetVisitorMessageRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetVisitorMessageRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field VisitorId", wireType)
+			}
+			m.VisitorId = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowService
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.VisitorId |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipService(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthService
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthService
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetVisitorMessageResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowService
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetVisitorMessageResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetVisitorMessageResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Messages", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowService
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthService
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthService
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Messages = append(m.Messages, &ChatMessage{})
+			if err := m.Messages[len(m.Messages)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipService(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthService
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthService
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *UploadVisitorAvatarRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowService
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: UploadVisitorAvatarRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: UploadVisitorAvatarRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Avatar", wireType)
+			}
+			var byteLen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowService
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				byteLen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if byteLen < 0 {
+				return ErrInvalidLengthService
+			}
+			postIndex := iNdEx + byteLen
+			if postIndex < 0 {
+				return ErrInvalidLengthService
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Avatar = append(m.Avatar[:0], dAtA[iNdEx:postIndex]...)
+			if m.Avatar == nil {
+				m.Avatar = []byte{}
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipService(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthService
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthService
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *UploadVisitorAvatarResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowService
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: UploadVisitorAvatarResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: UploadVisitorAvatarResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Url", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowService
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthService
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthService
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Url = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex

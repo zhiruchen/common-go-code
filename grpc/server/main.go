@@ -6,9 +6,13 @@ import (
 	"io"
 	"log"
 	"net"
+	"os"
+
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 
 	chatPb "github.com/zhiruchen/go-common/grpc/pb"
-	"google.golang.org/grpc"
 )
 
 var (
@@ -48,9 +52,6 @@ var (
 
 type chatServiceImpl struct{}
 
-// GetVisitor(context.Context, *GetVisitorRequest) (*GetVisitorResponse, error)
-//	GetMessage(ChatService_GetMessageServer) error
-
 func (svc *chatServiceImpl) GetVisitor(ctx context.Context, request *chatPb.GetVisitorRequest) (resp *chatPb.GetVisitorResponse, err error) {
 	visitor, ok := visitorMap[request.VisitorId]
 	if !ok {
@@ -59,6 +60,25 @@ func (svc *chatServiceImpl) GetVisitor(ctx context.Context, request *chatPb.GetV
 	return &chatPb.GetVisitorResponse{
 		Visitor: visitor,
 	}, nil
+}
+
+func (svc *chatServiceImpl) GetVisitorMessage(req *chatPb.GetVisitorMessageRequest, stream chatPb.ChatService_GetVisitorMessageServer) error {
+	// for _, feature := range s.savedFeatures {
+	//		if inRange(feature.Location, rect) {
+	//			if err := stream.Send(feature); err != nil {
+	//				return err
+	//			}
+	//		}
+	//	}
+	//	return nil
+	for _, msg := range messages {
+		if msg.FromId == req.VisitorId {
+			if err := stream.Send(&chatPb.GetVisitorMessageResponse{Messages: []*chatPb.ChatMessage{msg}}); err != nil {
+				return err
+			}
+		}
+	}
+	return nil
 }
 
 func (svc *chatServiceImpl) GetMessage(stream chatPb.ChatService_GetMessageServer) error {
@@ -85,6 +105,33 @@ func (svc *chatServiceImpl) GetMessage(stream chatPb.ChatService_GetMessageServe
 			return err
 		}
 	}
+}
+
+func (svc *chatServiceImpl) UploadVisitorAvatar(stream chatPb.ChatService_UploadVisitorAvatarServer) error {
+	var avatarStream []byte
+	name := "visitor_avatar.jpeg"
+	for {
+		avatar, err := stream.Recv()
+		if err == io.EOF {
+			break
+		}
+		if avatar == nil {
+			continue
+		}
+
+		avatarStream = append(avatarStream, avatar.Avatar...)
+	}
+
+	f, err := os.Create(name)
+	if err != nil {
+		return status.Errorf(codes.Internal, err.Error())
+	}
+
+	if _, err := f.Write(avatarStream); err != nil {
+		return status.Errorf(codes.Internal, err.Error())
+	}
+
+	return stream.SendAndClose(&chatPb.UploadVisitorAvatarResponse{Url: "http://locahost:5601/" + name})
 }
 
 func main() {

@@ -4,7 +4,9 @@ package chat;
 
 service chatService {
     rpc GetVisitor(GetVisitorRequest) returns (GetVisitorResponse) {}
+    rpc GetVisitorMessage(GetVisitorMessageRequest) returns (stream GetVisitorMessageResponse) {}
     rpc GetMessage(stream GetMessageRequest) returns (stream GetMessageResponse) {}
+    rpc UploadVisitorAvatar(stream UploadVisitorAvatarRequest) returns (UploadVisitorAvatarResponse) {}
 }
 
 message GetVisitorRequest {
@@ -33,4 +35,20 @@ message ChatMessage {
 
 message GetMessageResponse {
     repeated ChatMessage messages = 1;
+}
+
+message  GetVisitorMessageRequest {
+    int32 visitor_id = 1;
+}
+
+message GetVisitorMessageResponse {
+    repeated ChatMessage messages = 1;
+}
+
+message UploadVisitorAvatarRequest {
+    bytes avatar = 1;
+}
+
+message UploadVisitorAvatarResponse {
+    string url = 1;
 }
