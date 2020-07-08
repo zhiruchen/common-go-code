@@ -84,7 +84,7 @@ func TestInspectStructFields(t *testing.T) {
 	})
 }
 
-func TestGetStrcutTag(t *testing.T) {
+func TestGetStructTag(t *testing.T) {
 	GetStructTag(Programmer{
 		Name:     "Bob",
 		Age:      26,
