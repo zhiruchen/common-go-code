@@ -17,11 +17,31 @@ func TestCrawlWebTimeout(t *testing.T) {
 	defer cancel()
 
 	res, err := CrawlWeb(ctx, "https://blog.golang.org/context")
+	assert.NotNil(t, err)
+	assert.Equal(t, context.DeadlineExceeded, err)
+	assert.Nil(t, res)
+}
+
+func TestCrawlWebWithoutTimeout(t *testing.T) {
+	res, err := CrawlWeb(context.Background(), "https://blog.golang.org/context")
 	assert.Nil(t, err)
 	assert.NotNil(t, res)
-	if res != nil {
-		fmt.Println("res: ", *res)
-	}
+}
+
+// ctx done, error: context deadline exceeded
+// res:  <nil>
+// err:  context deadline exceeded
+func TestCrawlWebWithDeadline(t *testing.T) {
+	timeOut := 500 * time.Millisecond
+	ctx, cancel := context.WithDeadline(context.Background(), time.Now().Add(timeOut))
+	defer cancel()
+
+	res, err := CrawlWeb(ctx, "https://blog.golang.org/context")
+	log.Println("res: ", res)
+	log.Println("err: ", err)
+	assert.NotNil(t, err)
+	assert.Equal(t, context.DeadlineExceeded, err)
+	assert.Nil(t, res)
 }
 
 func TestCrawlWebNotTimeout(t *testing.T) {
@@ -54,6 +74,7 @@ func TestCrawlWebCancel(t *testing.T) {
 	go func() {
 		res, err := CrawlWeb(ctx, "https://blog.golang.org/context")
 		log.Println("res: ", res, ", error: ", err)
+		assert.Equal(t, context.Canceled, err)
 		c <- crawlResult{
 			res: res,
 			err: err,
