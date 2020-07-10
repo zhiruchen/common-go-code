@@ -10,12 +10,19 @@ import (
 	"github.com/parnurzeal/gorequest"
 )
 
+type ctxKeyTp struct{}
+
+var ctxKey = ctxKeyTp{}
+
 type result struct {
 	content string
 	err     error
 }
 
 func CrawlWeb(ctx context.Context, url string) (*result, error) {
+	ctxValue, ok := ctx.Value(ctxKey).(string)
+	log.Printf("get value from context(%v): %s, %t\n", ctxKey, ctxValue, ok)
+
 	var c = make(chan result, 1)
 	go func() {
 		now := time.Now()

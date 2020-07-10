@@ -90,3 +90,11 @@ func TestCrawlWebCancel(t *testing.T) {
 		assert.NotNil(t, res.res)
 	}
 }
+
+// get value from context({}): Hello,, true
+func TestPassValueThroughContext(t *testing.T) {
+	ctx := context.WithValue(context.Background(), ctxKey, "Hello,")
+	res, err := CrawlWeb(ctx, "https://blog.golang.org/context")
+	assert.Nil(t, err)
+	assert.NotNil(t, res)
+}
