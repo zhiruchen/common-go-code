@@ -10,14 +10,21 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+// get value from context({}): , false
 // ctx done, error: context deadline exceeded
+// since:  502.230142ms
 func TestCrawlWebTimeout(t *testing.T) {
 	timeOut := 500 * time.Millisecond
+	// context.WithTimeout returns a copy of parent context with timout
 	ctx, cancel := context.WithTimeout(context.Background(), timeOut)
 	defer cancel()
 
+	start := time.Now()
 	res, err := CrawlWeb(ctx, "https://blog.golang.org/context")
+	fmt.Println("since: ", time.Since(start))
 	assert.NotNil(t, err)
+
+	// After 500ms, CrawlWeb don't finish, So returns ctx.Err
 	assert.Equal(t, context.DeadlineExceeded, err)
 	assert.Nil(t, res)
 }

@@ -43,7 +43,10 @@ func CrawlWeb(ctx context.Context, url string) (*result, error) {
 	}()
 
 	select {
+	// when context canceled, timeout or deadline, then done channel will be closed.
+	// returns a channel that's closed when work done
 	case <-ctx.Done():
+		// Err() if Done is closed, then Err returns non nil error of the reason(canceled, deadlined)
 		ctxErr := ctx.Err()
 		log.Printf("ctx done, error: %v\n", ctxErr)
 		return nil, ctxErr

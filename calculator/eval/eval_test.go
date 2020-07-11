@@ -8,6 +8,7 @@ import (
 )
 
 func TestInfixToSuffix(t *testing.T) {
+	t.Parallel()
 	cases := []struct {
 		desc   string
 		infix  string
