@@ -50,7 +50,7 @@ func (cli *client) handle(msg []byte) {
 	case "USRS":
 		cli.usrs()
 	default:
-		cli.err(fmt.Errorf("unknow cmd: %s", cmd))
+		cli.err(fmt.Errorf("unknow splitwords: %s", cmd))
 	}
 
 	if err != nil {
