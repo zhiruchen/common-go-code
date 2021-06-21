@@ -3,9 +3,15 @@ package server
 import (
 	"bufio"
 	"bytes"
+	"errors"
 	"fmt"
 	"io"
 	"net"
+)
+
+var (
+	errInvalidUserName = errors.New("username must begin with @")
+	errBlankUserName   = errors.New("username can not be blank")
 )
 
 type client struct {
@@ -58,24 +64,35 @@ func (cli *client) handle(msg []byte) {
 	}
 }
 
-func (cli *client) reg(params []byte) error {
+func (cli *client) reg(args []byte) error {
+	userName := bytes.TrimSpace(args)
+	if userName[0] != '@' {
+		return errInvalidUserName
+	}
 
+	if len(userName) == 0 {
+		return errBlankUserName
+	}
+
+	cli.userName = string(userName)
+	cli.register <- cli
+	return nil
 }
 
-func (cli *client) err(err interface{}) {
-
+func (cli *client) err(err error) {
+	cli.conn.Write([]byte("ERR " + err.Error() + "\n"))
 }
 
 func (cli *client) join(params []byte) error {
-
+	return nil
 }
 
 func (cli *client) leave(params []byte) error {
-
+	return nil
 }
 
 func (cli *client) msg(params []byte) error {
-
+	return nil
 }
 
 func (cli *client) chns() {
