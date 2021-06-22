@@ -6,7 +6,14 @@ type channel struct {
 	clients map[*client]bool
 }
 
-func (c *channel) broadcase(s string, m []byte) {
+func newChannel(chanName string) *channel {
+	return &channel{
+		name:    chanName,
+		clients: make(map[*client]bool, 8),
+	}
+}
+
+func (c *channel) broadcast(s string, m []byte) {
 	msg := append([]byte(s), ": "...)
 	msg = append(msg, m...)
 	msg = append(msg, '\n')
